@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SoftAssertionsTest {
+public class SoftAssertionsTests {
 
     @BeforeAll
     static void setup() {
@@ -28,13 +28,13 @@ public class SoftAssertionsTest {
         $x("//*[contains(text(),'Show 1 more pages')]").click();
 
         //Убедиться, что в списке страниц (Pages) есть страница SoftAssertions
-        $$("#wiki-pages-box ul li" ).get(15).$("a").shouldHave(text("SoftAssertions"));
+        $$("#wiki-pages-box ul li").get(15).$("a").shouldHave(text("SoftAssertions"));
 
         //Открыть страницу SoftAssertions
         $x("//*[contains(text(),'SoftAssertions')]").click();
 
         //убедиться, что в списке есть упоминание про JUnit 5
-        $$("#wiki-content ol li" ).get(2).shouldHave(text("JUnit5 extension - com.codeborne.selenide.junit5.SoftAssertsExtension"));
+        $$("#wiki-content ol li").get(2).shouldHave(text("JUnit5 extension - com.codeborne.selenide.junit5.SoftAssertsExtension"));
 
         //убедиться, что на странице есть текст кода, который уникален для JUnit 5
         $x("//*[contains(text(),'@ExtendWith')]").shouldBe(visible);
